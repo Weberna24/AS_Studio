@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="order.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navBar">
+        <div class="logo">
+            <p></p>
+        </div>
+        <ul class="navbar-menu">
+            <li class="btnBack"><a href="/Wig/wig.html">Back</a></li>
+        </ul>
+    </nav>
+    <div class="order-container">
+        <form class="formOrder">
+            <div class="personalInfo">
+                <p style="margin-bottom: 1rem; font-size: 1.4rem;">Personal Information</p>
+                <div class="nameContainer">
+                    <label for="nameID">Name</label>
+                    <input type="text" id="nameID">
+                </div>
+                <div class="surnameContainer">
+                    <label for="surnameID">Surname</label>
+                    <input type="text" id="surnameID">
+                </div>
+                <div class="contactContainer">
+                    <label for="contactID">Phone number</label>
+                    <input type="text" id="contactID">
+                </div>
+                <p style="margin: 1rem 0; font-size: 1.4rem;">Product Information</p>
+                <div class="productName">
+                    <label for="productID">Phone number</label>
+                    <input type="text" id="productID">
+                </div>
+                <label class="quantity">Quantity</label>
+                <div class="quantity-detail">
+                    <div class="quantityButtons">
+                        <button class="increment" id="increment">+</button>
+                        <p class="quantity" id="quantity">0</p>
+                        <button class="decrement" id="decrement">-</button>
+                    </div>
+                </div>
+                <div class="itemPrice">
+                    <label style="padding-bottom: 0.4rem;">Product Price</label>
+                    <p>R1200</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
