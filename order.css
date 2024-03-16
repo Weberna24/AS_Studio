@@ -46,7 +46,7 @@
 
 .formOrder{
     gap: 2rem;
-    width: 100%;
+    width: 80%;
     display: grid;
     padding: 1rem 1rem;
     align-self: center;
