@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="wig.css">
     <title>A.S Hair Studio</title>
 </head>
@@ -13,8 +17,8 @@
                 <p></p>
             </div>
             <ul class="navbar-menu">
-                <li>Products</li>
-                <li>Contact Us</li>
+                <li><a href="#Products">Products</a></li>
+                <li><a href="#Contact">Contact Us</a></li>
             </ul>
             <div class="navbar-toggle" id="menu-bar">
                 <span class="bar"></span>
@@ -23,86 +27,261 @@
             </div>
         </nav>
     </section>
-    <section class="productPage">
+    <section id="Products" class="productPage">
         <p class="product-heading">HERE ARE OUR PRODUCTS</p>
         <div class="product-container">
             <div class="content">
                 <div class="productCard">
                     <div class="productImg">
-                        <img src="images/IMG-20240308-WA0022.jpg" alt="#">
+                        <img src="/Wig/images/IMG-20240308-WA0022.jpg" alt="#">
                     </div>
                     <div class="productContent">
-                        <p class="productPrice">R2600</p>
-                        <p class="productName">18inch DD Piano Wig</p>
-                        <a href="order.html" class="order"> Place Order</a>
+                        <p class="productPrice" id="productPrice1"></p>
+                        <p class="productName" id="productName1">18inch DD Piano Wig</p>
+                        <button class="order" id="order1">Add cart <box-icon type='solid' name='cart-add'></box-icon></>
                     </div>
                 </div>
             </div>
             <div class="content">
                 <div class="productCard">
                     <div class="productImg">
-                        <img src="images/IMG-20240308-WA0010.jpg" alt="#">
+                        <img src="/Wig/images/IMG-20240308-WA0010.jpg" alt="#">
                     </div>
                     <div class="productContent">
-                        <p class="productPrice">R1650</p>
-                        <a href="order.html" class="order"> Place Order</a>
+                        <p class="productPrice" id="productPrice2"></p>
+                        <button class="order" id="order2">Add cart <box-icon type='solid' name='cart-add'></box-icon></button>
                     </div>
                 </div>
             </div>
             <div class="content">
                 <div class="productCard">
                     <div class="productImg">
-                        <img src="images/IMG-20240308-WA0011.jpg" alt="#">
+                        <img src="/Wig/images/IMG-20240308-WA0011.jpg" alt="#">
                     </div>
                     <div class="productContent">
-                        <p class="productPrice">R2500</p>
-                        <p class="productName">20"13A Curly Wig</p>
-                        <a href="order.html" class="order"> Place Order</a>
+                        <p class="productPrice" id="productPrice3"></p>
+                        <p class="productName" id="productName3">20"13A Curly Wig</p>
+                        <button class="order" id="order3">Add cart <box-icon type='solid' name='cart-add'></box-icon></button>
                     </div>
                 </div>
             </div>
             <div class="content">
                 <div class="productCard">
                     <div class="productImg">
-                        <img src="images/IMG-20240308-WA0018.jpg" alt="#">
+                        <img src="/Wig/images/IMG-20240308-WA0018.jpg" alt="#">
                     </div>
                     <div class="productContent">
-                        <p class="productPrice">R2800</p>
-                        <p class="productName">18inch SDD Wig</p>
-                        <a href="order.html" class="order"> Place Order</a>
+                        <p class="productPrice" id="productPrice4"></p>
+                        <p class="productName" id="productName4">18inch SDD Wig</p>
+                        <button class="order" id="order4">Add cart <box-icon type='solid' name='cart-add'></box-icon></button>
                     </div>
                 </div>
             </div>
             <div class="content">
                 <div class="productCard">
                     <div class="productImg">
-                        <img src="images/IMG-20240308-WA0019.jpg" alt="#">
+                        <img src="/Wig/images/IMG-20240308-WA0019.jpg" alt="#">
                     </div>
                     <div class="productContent">
-                        <p class="productPrice">R3200</p>
-                        <p class="productName">16inch Fumi Curls</p>
-                        <a href="order.html" class="order"> Place Order</a>
+                        <p class="productPrice" id="productPrice5"></p>
+                        <p class="productName" id="productName5">16inch Fumi Curls</p>
+                        <button class="order" id="order5">Add cart <box-icon type='solid' name='cart-add'></box-icon></button>
                     </div>
                 </div>
             </div>
             <div class="content">
                 <div class="productCard">
                     <div class="productImg">
-                        <img src="images/IMG-20240308-WA0020.jpg" alt="#">
+                        <img src="/Wig/images/IMG-20240308-WA0020.jpg" alt="#">
                     </div>
                     <div class="productContent">
-                        <p class="productPrice">R4500</p>
-                        <p class="productName">30"14A Curly Wig</p>
-                        <a href="order.html" class="order"> Place Order</a>
+                        <p class="productPrice" id="productPrice6"></p>
+                        <p class="productName" id="productName6">30"14A Curly Wig</p>
+                        <button class="order" id="order6">Add cart <box-icon type='solid' name='cart-add'></box-icon></button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="contactPage">
-        <p style="font-size: 1.3rem;">Contact Us</p>
+    <section id="Contact" class="contactPage">
+        <div class="contact-container">
+            <div class="heading">
+                <p style="font-size: 1.3rem;">Contact Us</p>
+            </div>
+            <div class="contactUs">
+                <p>0683066413</p>
+                <div class="IG">
+                    <box-icon name='instagram-alt' type='logo' ></box-icon>
+                    <p style="margin-left: 5px;">a.s_hair.studio</p>
+                </div>
+            </div>
+        </div>
+        <p class="adminLink">AS Hair Studio</p>
     </section>
 
     <script src="wig.js"></script>
 </body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDiBiiAS-92IJ5WLLfETlgGcm_il677fPs",
+      authDomain: "as-hairstudio.firebaseapp.com",
+      databaseURL: "https://as-hairstudio-default-rtdb.firebaseio.com",
+      projectId: "as-hairstudio",
+      storageBucket: "as-hairstudio.appspot.com",
+      messagingSenderId: "1082234314174",
+      appId: "1:1082234314174:web:84e7d357cb5ce71d806def"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    import { getDatabase, ref, set, get, update, remove } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
+    const db = getDatabase(app); 
+
+    const btnOrder1 = document.getElementById('order1');
+    let productName1 = document.getElementById('productName1');
+    let productPrice1 = document.getElementById('productPrice1');
+    let price1 = 1050;
+    productPrice1.innerHTML = `R${price1}`
+
+    const btnOrder2 = document.getElementById('order2');
+    let productName2 = document.getElementById('productName2');
+    let productPrice2 = document.getElementById('productPrice2');
+    let price2 = 1050;
+    productPrice2.innerHTML = `R${price2}`
+
+    const btnOrder3 = document.getElementById('order3');
+    let productName3 = document.getElementById('productName3');
+    let productPrice3 = document.getElementById('productPrice3');
+    let price3 = 2170;
+    productPrice3.innerHTML = `R${price3}`
+
+    const btnOrder4 = document.getElementById('order4');
+    let productName4 = document.getElementById('productName4');
+    let productPrice4 = document.getElementById('productPrice4');
+    let price4 = 2500;
+    productPrice4.innerHTML = `R${price4}`
+
+    const btnOrder5 = document.getElementById('order5');
+    let productName5 = document.getElementById('productName5');
+    let productPrice5 = document.getElementById('productPrice5');
+    let price5 = 2300;
+    productPrice5.innerHTML = `R${price5}`
+
+    const btnOrder6 = document.getElementById('order6');
+    let productName6 = document.getElementById('productName6');
+    let productPrice6 = document.getElementById('productPrice6');
+    let price6 = 3800;
+    productPrice6.innerHTML = `R${price6}`
+
+    
+    btnOrder1.addEventListener('click', () => {
+        console.log("Hello");
+        update(ref(db, 'ProductDetails/'),{
+            productName: productName1.innerHTML,
+            productPrice: price1
+          })
+          .then(() =>{
+            if (confirm("Let's go place an order") == true){
+                location.href='order.html';
+            }
+          })
+          .catch((error) =>{
+            alert("Something went wrong. Please try again later")
+        });
+    })
+
+    btnOrder2.addEventListener('click', () => {
+        update(ref(db, 'ProductDetails/'),{
+            productPrice: price2
+          })
+          .then(() =>{
+            if (confirm("Let's go place an order") == true){
+                location.href='order.html';
+            }
+          })
+          .catch((error) =>{
+            alert("Something went wrong. Please try again later")
+        });
+    })
+
+    btnOrder3.addEventListener('click', () => {
+        update(ref(db, 'ProductDetails/'),{
+            productName: productName3.innerHTML,
+            productPrice: price3
+          })
+          .then(() =>{
+            if (confirm("Let's go place an order") == true){
+                location.href='order.html';
+            }
+          })
+          .catch((error) =>{
+            alert("Something went wrong. Please try again later")
+        });
+    })
+
+    btnOrder4.addEventListener('click', () => {
+        update(ref(db, 'ProductDetails/'),{
+            productName: productName4.innerHTML,
+            productPrice: price4
+          })
+          .then(() =>{
+            if (confirm("Let's go place an order") == true){
+                location.href='order.html';
+            }
+          })
+          .catch((error) =>{
+            alert("Something went wrong. Please try again later")
+        });  
+    })
+
+    btnOrder5.addEventListener('click', () => {
+        update(ref(db, 'ProductDetails/'),{
+            productName: productName5.innerHTML,
+            productPrice: price5
+          })
+          .then(() =>{
+            if (confirm("Let's go place an order") == true){
+                location.href='order.html';
+            }
+          })
+          .catch((error) =>{
+            alert("Something went wrong. Please try again later")
+        }); 
+    })
+
+    btnOrder6.addEventListener('click', () => {
+        update(ref(db, 'ProductDetails/'),{
+            productName: productName6.innerHTML,
+            productPrice: price6
+          })
+          .then(() =>{
+            if (confirm("Let's go place an order") == true){
+                location.href='order.html';
+            }
+          })
+          .catch((error) =>{
+            alert("Something went wrong. Please try again later")
+        });     
+    })
+
+    const btnAdmin = document.querySelector('.adminLink');
+
+    btnAdmin.addEventListener('click', () => {
+        let password = prompt("Admin authorisation required?");
+        if (password === "Admin"){
+            location.href='table.html';
+        }else {
+            alert("Incorrect password entered")
+        }
+    })
+
+</script>
 </html>

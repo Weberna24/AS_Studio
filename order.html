@@ -3,53 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="order.css">
     <title>Document</title>
 </head>
 <body>
     <nav class="navBar">
         <div class="logo">
-            <p></p>
+            <a href="/Wig/index.html"><box-icon name='arrow-back'></box-icon></a>
         </div>
         <ul class="navbar-menu">
-            <li class="btnBack"><a href="/index.html">Back</a></li>
         </ul>
     </nav>
     <div class="order-container">
-        <form class="formOrder">
+        <div class="formOrder">
             <div class="personalInfo">
                 <p style="margin-bottom: 1rem; font-size: 1.4rem;">Personal Information</p>
                 <div class="nameContainer">
                     <label for="nameID">Name</label>
                     <input type="text" id="nameID">
+                    <div class="error"></div>
                 </div>
                 <div class="surnameContainer">
                     <label for="surnameID">Surname</label>
                     <input type="text" id="surnameID">
+                    <div class="error"></div>
                 </div>
                 <div class="contactContainer">
                     <label for="contactID">Phone number</label>
                     <input type="text" id="contactID">
+                    <div class="error"></div>
                 </div>
                 <p style="margin: 1rem 0; font-size: 1.4rem;">Product Information</p>
                 <div class="productName">
-                    <label for="productID">Phone number</label>
+                    <label for="productID">Product name</label>
                     <input type="text" id="productID">
                 </div>
-                <label class="quantity">Quantity</label>
+                <label>Quantity</label>
                 <div class="quantity-detail">
                     <div class="quantityButtons">
-                        <button class="increment" id="increment">+</button>
-                        <p class="quantity" id="quantity">0</p>
-                        <button class="decrement" id="decrement">-</button>
+                        <button class="decrement">-</button>
+                        <p class="quantity"></p>
+                        <button class="increment">+</button>
                     </div>
                 </div>
                 <div class="itemPrice">
-                    <label style="padding-bottom: 0.4rem;">Product Price</label>
-                    <p>R1200</p>
+                    <label>Product Price</label>
+                    <p class="itemPrice"></p>
                 </div>
             </div>
-        </form>
+            <button class="btnSubmit">Place Order</button>
+            <p>For more details contact us: 070 011 1234</p>
+        </div>
     </div>
+    <script src="wig.js"></script>
 </body>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDiBiiAS-92IJ5WLLfETlgGcm_il677fPs",
+      authDomain: "as-hairstudio.firebaseapp.com",
+      databaseURL: "https://as-hairstudio-default-rtdb.firebaseio.com",
+      projectId: "as-hairstudio",
+      storageBucket: "as-hairstudio.appspot.com",
+      messagingSenderId: "1082234314174",
+      appId: "1:1082234314174:web:84e7d357cb5ce71d806def"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    import { getDatabase, ref, set, get, child, push, update, remove } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
+    const db = getDatabase(app); 
+
+    var name = document.getElementById('nameID');
+    var surname = document.getElementById('surnameID');
+    var contact = document.getElementById('contactID');
+    var product = document.getElementById('productID');
+    var quantity = document.querySelector('.quantity');
+    var price = document.querySelector('.itemPrice');
+    const btnIncrement = document.querySelector('.increment');
+    const btnDecrement = document.querySelector('.decrement');
+
+    let productPrice;
+    let productName;
+    let totalPrice;
+    let count = 1;
+    let key = 1;
+
+    const btnSubmit = document.querySelector('.btnSubmit');
+
+    
+
+    const dbRef = ref(getDatabase());
+        get(child(dbRef, 'ProductDetails')).then((snapshot) => {
+            
+            var data = snapshot.val();
+            productPrice = data.productPrice;
+            productName = data.productName;
+            console.log(productPrice*2)
+
+            product.value = productName;
+            price.innerHTML = `R${productPrice}`;
+            quantity.innerHTML = count
+            totalPrice = productPrice*count;
+
+            btnIncrement.addEventListener('click', () => {
+                count++
+                quantity.innerHTML = count
+
+                totalPrice = productPrice*count;
+                price.innerHTML = `R${productPrice*count}`;
+            })
+
+            btnDecrement.addEventListener('click', () => {
+                if (count > 1){
+                    count--
+                    quantity.innerHTML = count
+
+                    totalPrice = productPrice*count;
+                    price.innerHTML = `R${productPrice*count}`;
+                }
+            })
+        });
+
+    
+
+    function insertData(){
+        const userId = push(child(ref(db), 'ClientDetails')).key;
+        set(ref(db, "ClientDetails/" + userId), {
+            Name: name.value,
+            Surname: surname.value,
+            Contact: contact.value,
+            Product: productName,
+            Quantity: count,
+            Price: totalPrice
+        })
+        .then(() =>{
+            alert("Data stored successfully");
+        })
+        .catch((error)=>{
+            alert("Unsuccessful, error "+ error);
+        });
+        
+    }
+
+    btnSubmit.addEventListener('click', (e) => {
+        if (name.value !== '' && surname.value !== '' && contact.value !== ''){
+            validateInputs();
+            insertData();
+        }else {
+            validateInputs();
+        }
+        e.preventDefault();
+    })
+
+    const setError = (element, message) => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector('.error');
+    
+        errorDisplay.innerText = message;
+        inputControl.classList.add('error');
+        inputControl.classList.remove('success')
+    }
+
+    const setSuccess = element => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector('.error');
+    
+        errorDisplay.innerText = '';
+        inputControl.classList.remove('error');
+    };
+    
+    const validateInputs = () => {
+        const nameValue = name.value;
+        const surnameValue = surname.value;
+        const contactValue = contact.value;
+    
+        if(nameValue === '') {
+            setError(name, 'Name is required');
+        } else {
+            setSuccess(name);
+        }
+    
+        if(surnameValue === '') {
+            setError(surname, 'Surname is required');
+        } else {
+            setSuccess(surname);
+        }
+    
+        if(contactValue === '') {
+            setError(contact, 'Phone number is required');
+        } else {
+            setSuccess(contact);
+        }
+    
+        if(contactValue.length !== 10) {
+            setError(contact, 'Please make sure the phonr number is entered correctly');
+        } else {
+            setSuccess(contact);
+        }
+    
+    };
+
+</script>
 </html>

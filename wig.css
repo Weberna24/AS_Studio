@@ -5,12 +5,16 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 .homePage{
     height: 70vh;
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-image: url("images/AS\ Hair\ Studio\ \(3\).png");
+    background: url("/Wig/images/AS\ Hair\ Studio\ \(3\).png");
     background-position: center;
     background-size: contain;
     
@@ -37,6 +41,11 @@
     cursor: pointer;
 }
 
+
+.navbar-menu li a{
+    color: black;
+    text-decoration: none;
+}
 .wigVideo{
     top: 0;
     left: 0;
@@ -141,9 +150,9 @@
 }
 
 .product-heading{
-    font-size: 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgba(255, 48, 221);
+    font-size: 3rem;
+    font-family: "Titan One" , sans-serif;
+    color: rgb(255, 48, 221);
 }
 
 .product-container{
@@ -152,8 +161,7 @@
     text-align: center;
     justify-content: center;
     padding: 2rem 1rem;
-    grid-template-columns: 220px 220px 220px 220px;
-    grid-template-rows: 380px 380px;
+    grid-template-columns: 220px 220px 220px;
     margin: 1rem 0;
 }
 
@@ -163,12 +171,13 @@
 }
 
 .productCard{
+    height: 380px;
     width: 100%;
     display: flex;
     align-items: start;
     flex-direction: column;
     border-radius: 5px;
-    box-shadow: 1px 5px 5px 1px rgba(255, 48, 221, 0.8);
+    box-shadow: 1px 4px 4px 1px rgba(255, 48, 221, 0.8);
     
 }
 
@@ -189,6 +198,8 @@
     width: 100%;
     height: 100%;
     display: flex;
+    font-family: "Truculenta", sans-serif;
+    
 }
 
 .productContent{
@@ -197,39 +208,51 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding: 0 1rem;
+    padding: 0 1rem; 
 }
 
 .productPrice{
     margin-top: 1rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: rgb(206, 15, 174);
+    font-family: "Truculenta", sans-serif;
+    font-size: 1.3rem;
 }
 
 .order{
-    color: black;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
     align-self: center;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
     margin-bottom: 1rem;
+    background: transparent;
     border: 1px solid black;
+    transition: all ease-in-out 0.4s;
+    font-family: "Truculenta", sans-serif;
+
 }
 
-@media screen and (max-width: 820px){
+.order:hover{
+    border: none;
+    color: white;
+    background: rgb(255, 48, 221);
+    transition: all ease-in-out 0.4s;
+
+
+}
+
+@media screen and (max-width: 930px){
     .product-container{
         display: grid;
         grid-template-columns: 220px 220px;
-        grid-template-rows: repeat(6, 380px);
         margin: 1rem 0;
     }
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 650px){
     .product-container{
         display: grid;
         grid-template-columns: 220px;
-        grid-template-rows: repeat(auto, 200px);
         margin: 1rem 0;
     }
 }
@@ -238,10 +261,32 @@
     width: 100%;
     display: flex;
     height: 150px;
-    justify-content: center;
-    padding: 1rem 0;
-    background-image: url("images/AS\ Hair\ Studio\ \(3\).png");
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 5px;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    background: url("/Wig/images/AS\ Hair\ Studio\ \(3\).png");
     background-position: top;
     background-size: cover;
 }
 
+.order-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contactUs{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.IG{
+    display: flex;
+    align-items: center;
+}
